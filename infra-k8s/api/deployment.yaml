@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-http
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-http
+  template:
+    metadata:
+      labels:
+        app: api-http
+    spec:
+      containers:
+      - name: api-otel
+        image: demo-api-otel:1.0.0 ####  Colocar o nome da imagem da API
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: api-config
+              key: DATABASE_URL
+        - name: NODE_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: api-config
+              key: NODE_ENV
+        - name: HOST_GRPC
+          valueFrom:
+            configMapKeyRef:
+              name: api-config
+              key: HOST_GRPC              
+
