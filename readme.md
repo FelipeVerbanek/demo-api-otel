@@ -25,8 +25,8 @@ Esta é uma API de demonstração desenvolvida com o propósito de explorar a in
 ### 1. Clone o Repositório
 
 ```bash
-git clone git@git.tecnospeed.local:sysops/poc/open-telemetry/applications/api-http-nodejs.git
-cd api-http-nodejs
+git clone git@github.com:FelipeVerbanek/demo-api-otel.git
+cd demo-api-otel
 ```
 
 ### 2. Instale as Dependências
@@ -54,6 +54,12 @@ Para rodar a aplicação:
 
 ```bash
 npm dev
+```
+
+##  7. Geração do build docker
+
+```bash
+docker build demo-api-otel:1.0.0 .
 ```
 
 
